@@ -23,6 +23,7 @@ const assets = [
   "vCube",
 ];
 
+console.log("🚀 Iniciando aplicación Three.js...");
 init();
 
 function init() {
@@ -97,7 +98,9 @@ function init() {
 }
 
 function loadAsset(asset) {
+  console.log("🎬 Cargando modelo:", asset);
   loader.load("models/fbx/" + asset + ".fbx", function (group) {
+    console.log("✅ Modelo cargado exitosamente:", group);
     if (object) {
       object.traverse(function (child) {
         if (child.isSkinnedMesh) {
