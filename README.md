@@ -1,38 +1,29 @@
-# 🎭 Sistema de Control de Modelos 3D con Bailes de Samba
+# 🎮 Sistema de Control de Modelos 3D
 
 ## 📋 Descripción
 
-Este proyecto es un sistema avanzado de control de modelos 3D desarrollado con Three.js que incluye un sistema único de bailes de samba con pasos auténticos y realistas. El sistema permite cargar modelos FBX y aplicar diferentes estilos de baile brasileño con movimientos únicos para cada estilo.
+Este proyecto es un sistema básico de control de modelos 3D desarrollado con Three.js. Permite cargar y visualizar modelos FBX con animaciones, incluyendo controles de cámara y una interfaz GUI para seleccionar entre diferentes modelos disponibles.
 
 ## 🚀 Características Principales
 
-### 🎭 **Sistema de Bailes de Samba Únicos**
-- **5 estilos diferentes** de samba con pasos completamente únicos
-- **Movimientos realistas** basados en técnicas auténticas de samba brasileña
-- **Animaciones continuas** que nunca se detienen
-- **Transiciones suaves** entre diferentes estilos
+### 🎮 **Carga de Modelos 3D**
+- **Carga de modelos FBX** con animaciones
+- **Visualización 3D** con renderizado WebGL
+- **Controles de cámara** con OrbitControls
+- **Interfaz GUI** para selección de modelos
 
-### 🎮 **Controles Avanzados**
-- **Interfaz GUI intuitiva** con controles organizados en carpetas
-- **Control de tempo** en tiempo real (0.5x - 2.0x)
-- **Ajustes de realismo** (movimiento de cadera, intensidad de pasos)
-- **Variaciones naturales** para mayor autenticidad
+### 🎨 **Características Visuales**
+- **Iluminación realista** con luces direccionales y hemisféricas
+- **Sombras dinámicas** para mayor realismo
+- **Suelo y rejilla** de referencia
+- **Efectos de niebla** atmosféricos
 
-### 🎨 **Visualización en Tiempo Real**
-- **Panel informativo** que muestra el estilo actual y descripción
-- **Indicador de estado** visual (▶️ Reproduciendo / ⏸️ Detenido)
-- **Logs detallados** en consola para diagnóstico
-- **Estadísticas de rendimiento** integradas
-
-## 🎯 Estilos de Samba Disponibles
-
-| Estilo | Descripción | Tempo | Características |
-|--------|-------------|-------|-----------------|
-| **Samba Básico** | Pasos fundamentales | 1.0x | Movimientos constantes y predecibles |
-| **Samba Reggae** | Influencia reggae | 0.8x | Más lento y sensual, balanceo amplio |
-| **Samba Enredo** | Carnaval elaborado | 1.2x | Rápido y energético, pasos intensos |
-| **Samba Rock** | Fusión con rock | 1.1x | Dinámico y poderoso, movimientos marcados |
-| **Samba Pagode** | Suave y sensual | 0.9x | Elegante y romántico, movimientos fluidos |
+### 🎭 **Modelos Disponibles**
+- **Samba Dancing**: Modelo con animación de baile
+- **Monkey**: Modelo básico de primate
+- **Monkey Embedded Texture**: Versión con texturas
+- **Morph Test**: Modelo para pruebas de morphs
+- **vCube**: Modelo cúbico de prueba
 
 ## 🛠️ Tecnologías Utilizadas
 
@@ -48,9 +39,9 @@ Este proyecto es un sistema avanzado de control de modelos 3D desarrollado con T
 threejs-3d-models/
 ├── index.html              # Página principal
 ├── css/
-│   └── main.css           # Estilos CSS
+│   └── main.css           # Estilos CSS básicos
 ├── js/
-│   └── main.js            # Código principal (completamente comentado)
+│   └── main.js            # Código principal
 ├── jsm/                   # Módulos de Three.js
 │   ├── controls/
 │   ├── loaders/
@@ -91,95 +82,83 @@ threejs-3d-models/
 ## 🎮 Cómo Usar
 
 ### **1. Cargar Modelo**
-- Selecciona "Samba Dancing" en el panel "Modelos 3D"
-- El panel de bailes aparecerá automáticamente
+- Usa el dropdown en la interfaz GUI para seleccionar un modelo
+- Los modelos se cargan automáticamente con sus animaciones
 
-### **2. Cambiar Estilos de Baile**
-- Usa el dropdown "Estilo de Baile" en el panel "Bailes de Samba"
-- Cada cambio aplica pasos únicos y específicos del estilo
+### **2. Controles de Cámara**
+- **Mouse izquierdo + arrastrar**: Rotar cámara
+- **Mouse derecho + arrastrar**: Pan de cámara
+- **Rueda del mouse**: Zoom in/out
 
-### **3. Personalizar Experiencia**
-- **Tempo**: Ajusta la velocidad del baile (0.5x - 2.0x)
-- **Movimiento de Cadera**: Controla la intensidad (0.0 - 2.0)
-- **Intensidad de Pasos**: Ajusta los movimientos de pies (0.0 - 2.0)
-- **Variación Natural**: Activa variaciones aleatorias
-
-### **4. Controles de Emergencia**
-- **▶️ Reproducir Baile**: Reinicia la animación manualmente
-- **🔄 Reset Completo**: Limpia todo el sistema y recarga el modelo
+### **3. Controles de Morphs**
+- Si el modelo tiene morphs disponibles, aparecerá una carpeta "Morphs" en la GUI
+- Usa los sliders para ajustar los morphs del modelo
 
 ## 🔧 Características Técnicas
 
-### **Sistema de Animación Avanzado**
-- **Manipulación directa de huesos** para movimientos naturales
-- **Configuración específica por estilo** con amplitudes y frecuencias únicas
-- **Sistema de fases desfasadas** para evitar movimientos robóticos
-- **Verificación automática** que mantiene las animaciones corriendo
+### **Sistema de Renderizado**
+- **WebGL** para renderizado 3D acelerado por GPU
+- **Sombras dinámicas** con mapas de sombra
+- **Antialiasing** para bordes suaves
+- **Fog** atmosférico para profundidad
 
 ### **Gestión de Recursos**
 - **Limpieza automática** de modelos anteriores
 - **Gestión eficiente de memoria** para modelos FBX
-- **Sistema de fallback** para casos de error
-- **Logs detallados** para diagnóstico
+- **Dispose** de geometrías y materiales
 
-### **Optimización de Rendimiento**
-- **Verificaciones probabilísticas** (no cada frame)
-- **Actualización selectiva** de elementos visuales
-- **Gestión inteligente** de recursos de GPU
+### **Interfaz de Usuario**
+- **GUI responsive** que se adapta a diferentes tamaños de pantalla
+- **Controles organizados** en carpetas
+- **Estadísticas de rendimiento** en tiempo real
 
-## 📊 Sistema de Diagnóstico
+## 📊 Modelos Incluidos
 
-### **Logs de Consola**
-Abre la consola del navegador (F12) para ver:
-- `🎬 Cargado modelo: [nombre]`
-- `🎭 Aplicando [estilo]: [descripción]`
-- `✅ Animación reproduciéndose correctamente`
-- `⚠️ Animación detenida, reiniciando automáticamente...`
+| Modelo | Descripción | Características |
+|--------|-------------|-----------------|
+| **Samba Dancing** | Modelo de baile | Animación de samba brasileña |
+| **Monkey** | Modelo básico | Geometría simple |
+| **Monkey Embedded Texture** | Versión texturizada | Incluye materiales |
+| **Morph Test** | Modelo de prueba | Para testing de morphs |
+| **vCube** | Cubo simple | Geometría básica |
 
-### **Panel Visual**
-- **Estado en tiempo real**: ▶️ Reproduciendo / ⏸️ Detenido
-- **Información del baile**: Nombre, descripción, tempo
-- **Colores dinámicos**: Verde (activo) / Rojo (detenido)
+## 🎯 Funcionalidades
 
-## 🎭 Características Únicas del Sistema de Samba
+### **Carga de Modelos**
+- Carga automática de modelos FBX
+- Reproducción automática de animaciones
+- Limpieza de recursos al cambiar modelos
 
-### **Movimientos Auténticos**
-Cada estilo implementa movimientos específicos basados en técnicas reales:
+### **Controles Visuales**
+- Cámara orbital con controles intuitivos
+- Zoom y pan suaves
+- Rotación libre alrededor del modelo
 
-- **Samba Reggae**: Movimientos ondulantes y sensuales
-- **Samba Enredo**: Pasos rápidos y energéticos de carnaval
-- **Samba Rock**: Movimientos agresivos y dinámicos
-- **Samba Pagode**: Pasos suaves y románticos
-
-### **Sistema de Pasos Realistas**
-- **Manipulación de esqueleto** en tiempo real
-- **Movimientos de cadera** característicos de cada estilo
-- **Pasos alternados** con fases específicas
-- **Balanceo del cuerpo** coordinado con el ritmo
+### **Interfaz GUI**
+- Selección de modelos con dropdown
+- Controles de morphs (si están disponibles)
+- Estadísticas de rendimiento
 
 ## 🐛 Solución de Problemas
 
-### **Si el baile se detiene:**
-1. Usa el botón "▶️ Reproducir Baile"
-2. Cambia a otro estilo y vuelve al deseado
-3. Usa "🔄 Reset Completo" si persiste el problema
+### **Si el modelo no se carga:**
+1. Verifica que el archivo FBX existe en la carpeta `models/fbx/`
+2. Asegúrate de que el servidor web esté funcionando
+3. Revisa la consola del navegador para errores
 
-### **Si no aparece el panel de bailes:**
-1. Asegúrate de seleccionar "Samba Dancing" en Modelos 3D
-2. Recarga la página si es necesario
+### **Si hay problemas de rendimiento:**
+- Verifica que tu navegador tenga soporte WebGL
+- Cierra otras pestañas que consuman recursos
+- Reduce la calidad gráfica si es necesario
 
-### **Para mejor rendimiento:**
-- Desactiva "Variación Natural" si hay lag
-- Reduce la "Intensidad de Pasos" si es necesario
-- Verifica que el navegador tenga soporte WebGL
+## 📝 Código
 
-## 📝 Código Completamente Comentado
+El código está organizado de manera clara y modular:
 
-Todo el código está extensamente comentado con:
-- **Secciones claramente definidas**
-- **Explicaciones detalladas** de cada función
-- **Comentarios inline** para líneas complejas
-- **Documentación de parámetros** y configuraciones
+- **init()**: Inicialización de la escena, cámara, luces y controles
+- **loadAsset()**: Carga y configuración de modelos FBX
+- **animate()**: Bucle principal de animación
+- **onWindowResize()**: Manejo de redimensionamiento de ventana
 
 ## 🤝 Contribuciones
 
@@ -203,12 +182,12 @@ Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más det
 
 ## 🎯 Próximas Características
 
-- [ ] Más estilos de samba brasileña
-- [ ] Sistema de música sincronizada
-- [ ] Efectos de partículas para bailes
-- [ ] Exportación de animaciones
-- [ ] Modo de grabación de movimientos
+- [ ] Más formatos de modelos 3D
+- [ ] Controles de animación más avanzados
+- [ ] Sistema de iluminación configurable
+- [ ] Exportación de capturas de pantalla
+- [ ] Modo de presentación automática
 
 ---
 
-¡Disfruta explorando los diferentes estilos de samba y creando tu propia experiencia de baile única! 🎭💃🎵
+¡Disfruta explorando los diferentes modelos 3D disponibles! 🎮🎨
